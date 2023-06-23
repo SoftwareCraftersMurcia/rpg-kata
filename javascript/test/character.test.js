@@ -13,5 +13,11 @@ describe("Character", function () {
 
       expect(character.level).toBe(1);
     });
+
+    it("a new character should be alive", function () {
+      const character = new Character();
+
+      expect(character.isAlive).toBe(true);
+    });
   });
 });
