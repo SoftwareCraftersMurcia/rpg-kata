@@ -11,6 +11,18 @@ class ExampleTest {
         Assertions.assertEquals(true, character.hasHealth(1000))
     }
 
+    @Test
+    fun `should start at level 1`() {
+        val character = Character()
+        Assertions.assertEquals(1, character.hasLevel())
+    }
+
+    @Test
+    fun `should start alive`() {
+        val character = Character()
+        Assertions.assertEquals(true, character.isAlive())
+    }
+
     @TestFactory
     fun dynamicTestExample() = listOf(
         1 to 1,
