@@ -20,6 +20,11 @@ class Character
 
     public function receiveDamage(int $damage): void
     {
+        if ($this->health < $damage) {
+            $this->health = 0;
+            $this->isAlive = false;
+            return;
+        }
         $this->health -= $damage;
     }
 }

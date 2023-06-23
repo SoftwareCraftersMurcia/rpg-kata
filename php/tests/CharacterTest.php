@@ -17,7 +17,7 @@ class CharacterTest extends TestCase
     }
 
     /** @test */
-    public function damage_substract_health_from_character()
+    public function damage_subtract_health_from_character(): void
     {
         $character = new Character();
         $damagedCharacter = new Character(750, 1, true);
@@ -25,5 +25,17 @@ class CharacterTest extends TestCase
         $character->receiveDamage(250);
 
         self::assertEquals($damagedCharacter, $character);
+    }
+
+    /** @test */
+    public function killer_damage_kills_character(): void
+    {
+        $character = new Character();
+        $deadCharacter = new Character(0, 1, false);
+
+        $character->receiveDamage(500);
+        $character->receiveDamage(501);
+
+        self::assertEquals($deadCharacter, $character);
     }
 }
