@@ -51,11 +51,16 @@ describe("Character", function () {
     });
 
     describe("when a character heals another character", function() {
-      it('should restore health points to damaged character', function() {
+      function newDamagedCharacter(initialLife) {
         const damagedCharacter = new Character();
-        const healerCharacter = new Character();
         const attacker = new Character();
-        attacker.dealDamage(damagedCharacter, 600);
+        attacker.dealDamage(damagedCharacter, 1000 - initialLife);
+        return damagedCharacter;
+      }
+
+      it('should restore health points to damaged character', function() {
+        const healerCharacter = new Character();
+        const damagedCharacter = newDamagedCharacter(400);
 
         healerCharacter.heal(damagedCharacter, 100);
 
