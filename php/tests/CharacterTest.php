@@ -20,9 +20,11 @@ class CharacterTest extends TestCase
     public function damage_subtract_health_from_character(): void
     {
         $character = new Character();
+        $attacker = new Character();
+
         $damagedCharacter = new Character(750, 1);
 
-        $character->receiveDamage(250);
+        $attacker->damage($character, 250);
 
         self::assertEquals($damagedCharacter, $character);
     }
@@ -31,10 +33,10 @@ class CharacterTest extends TestCase
     public function kills_character_without_health(): void
     {
         $character = new Character();
+        $attacker = new Character();
         $deadCharacter = new Character(0, 1);
-
-        $character->receiveDamage(500);
-        $character->receiveDamage(501);
+        $attacker->damage($character, 500);
+        $attacker->damage($character, 501);
 
         self::assertEquals($deadCharacter, $character);
     }
@@ -43,9 +45,11 @@ class CharacterTest extends TestCase
     public function kills_character_is_not_alive(): void
     {
         $character = new Character();
-        $character->receiveDamage(500);
+        $attacker = new Character();
+
+        $attacker->damage($character, 500);
         self::assertTrue($character->isAlive());
-        $character->receiveDamage(501);
+        $attacker->damage($character, 501);
         self::assertFalse($character->isAlive());
     }
 }

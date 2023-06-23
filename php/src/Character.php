@@ -15,13 +15,13 @@ class Character
         $this->level = $level;
     }
 
-    public function receiveDamage(int $damage): void
+    public function damage(Character $other, int $damage): void
     {
-        if ($this->health < $damage) {
-            $this->health = 0;
+        if ($other->health < $damage) {
+            $other->health = 0;
             return;
         }
-        $this->health -= $damage;
+        $other->health -= $damage;
     }
 
     public function isAlive(): bool
