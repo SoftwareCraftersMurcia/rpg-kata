@@ -75,4 +75,16 @@ class CharacterTest extends TestCase
 
         self::assertEquals($expected, $healed);
     }
+
+    /** @test */
+    public function attacker_cannot_damage_themselves(): void
+    {
+        $this->markTestSkipped('Not implemented yet :D');
+        $character = new Character();
+        $attacker = new Character();
+
+        $attacker->damage($attacker, 500);
+
+        self::assertEquals($attacker, $character);
+    }
 }
