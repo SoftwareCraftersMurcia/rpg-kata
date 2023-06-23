@@ -51,6 +51,28 @@ class ExampleTest {
         Assertions.assertTrue(character.hasHealth(0))
     }
 
+    @Test
+    fun `should a character heal another character`() {
+        val character = Character()
+        character.damage(1)
+        character.heal(1)
+        Assertions.assertTrue(character.hasHealth(1000))
+    }
+
+    @Test
+    fun `should a character can not be heal if is dead`() {
+        val character = Character()
+        character.damage(1000)
+        character.heal(1)
+        Assertions.assertTrue(character.isDead())
+    }
+
+    @Test
+    fun `should not be healed if health overpass 1000`() {
+        val character = Character()
+        character.heal(1)
+        Assertions.assertTrue(character.hasHealth(1000))
+    }
 
     @TestFactory
     fun dynamicTestExample() = listOf(
