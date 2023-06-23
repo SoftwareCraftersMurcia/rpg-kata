@@ -7,5 +7,11 @@ describe("Character", function () {
 
       expect(character.healthPoints).toBe(1000);
     });
+
+    it("a new character should start at level 1", function () {
+      const character = new Character();
+
+      expect(character.level).toBe(1);
+    });
   });
 });
