@@ -16,5 +16,9 @@ class Character {
     }
     character.healthPoints = character.healthPoints - damage;
   }
+
+  heal(character, restoredLive) {
+    character.healthPoints = character.healthPoints + restoredLive;
+  }
 }
 module.exports = Character;

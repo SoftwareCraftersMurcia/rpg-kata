@@ -49,5 +49,19 @@ describe("Character", function () {
         expect(victim.isAlive).toBe(false);
       });
     });
+
+    describe("when a character heals another character", function() {
+      it('should restore health points to damaged character', function() {
+        const damagedCharacter = new Character();
+        const healerCharacter = new Character();
+        const attacker = new Character();
+        attacker.dealDamage(damagedCharacter, 600);
+
+        healerCharacter.heal(damagedCharacter, 100);
+
+        expect(damagedCharacter.healthPoints).toBe(500);
+
+      });
+    })
   });
 });
