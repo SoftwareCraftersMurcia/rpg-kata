@@ -7,5 +7,9 @@ class Character {
     this.level = STARTING_LEVEL;
     this.isAlive = true;
   }
+
+  dealDamage(character, damage) {
+    character.healthPoints = character.healthPoints - damage;
+  }
 }
 module.exports = Character;

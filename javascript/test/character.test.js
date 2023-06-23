@@ -20,4 +20,15 @@ describe("Character", function () {
       expect(character.isAlive).toBe(true);
     });
   });
+
+  describe("when a character damages other character", function () {
+    it("should reduce the other character's health points", function () {
+      const attacker = new Character();
+      const victim = new Character();
+
+      attacker.dealDamage(victim, 100);
+
+      expect(victim.healthPoints).toBe(900);
+    });
+  });
 });
