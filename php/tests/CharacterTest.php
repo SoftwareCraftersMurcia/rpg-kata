@@ -52,4 +52,15 @@ class CharacterTest extends TestCase
         $attacker->damage($character, 501);
         self::assertFalse($character->isAlive());
     }
+
+    /** @test */
+    public function character_can_heal_other(): void
+    {
+        $healed = new Character(500);
+        $expected = new Character(600);
+        $doctor = new Character();
+
+        $doctor->heal($healed, 100);
+        self::assertEquals($expected, $healed);
+    }
 }

@@ -28,4 +28,9 @@ class Character
     {
         return $this->health > 0;
     }
+
+    public function heal(Character $other, int $health): void
+    {
+        $other->health += $health;
+    }
 }
