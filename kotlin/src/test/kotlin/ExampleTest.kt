@@ -6,9 +6,9 @@ import org.junit.jupiter.api.TestFactory
 class ExampleTest {
 
     @Test
-    fun change_me_first() {
+    fun `should have 1000 health if new character is created`() {
         val character = Character()
-        Assertions.assertEquals("Example", "Example")
+        Assertions.assertEquals(true, character.hasHealth(1000))
     }
 
     @TestFactory
