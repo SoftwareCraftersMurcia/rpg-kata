@@ -32,13 +32,21 @@ describe("Character", function () {
     });
 
     describe("when damage exceeded the character's health", function () {
-      it("should set the character's health to 0", function () {
-        const attacker = new Character();
-        const victim = new Character();
+      let attacker;
+      let victim;
+      beforeEach(function () {
+        attacker = new Character();
+        victim = new Character();
 
         attacker.dealDamage(victim, 2000);
+      });
 
+      it("should set the character's health to 0", function () {
         expect(victim.healthPoints).toBe(0);
+      });
+
+      it("should set the character's isAlive to false", function () {
+        expect(victim.isAlive).toBe(false);
       });
     });
   });

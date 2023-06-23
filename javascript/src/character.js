@@ -11,6 +11,7 @@ class Character {
   dealDamage(character, damage) {
     if (damage > character.healthPoints) {
       character.healthPoints = 0;
+      character.isAlive = false;
       return;
     }
     character.healthPoints = character.healthPoints - damage;
