@@ -7,6 +7,7 @@ class ExampleTest {
 
     @Test
     fun change_me_first() {
+        val character = Character()
         Assertions.assertEquals("Example", "Example")
     }
 
