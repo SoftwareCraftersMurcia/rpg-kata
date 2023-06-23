@@ -6,11 +6,14 @@ class Character {
         return 1
     }
 
-    fun isAlive(): Boolean {
-        return true
-    }
+    fun isAlive(): Boolean = health > 0;
 
-    fun damage(i: Int) {
-        health -= i;
+    fun damage(value: Int) {
+        if (value > health) {
+            health = 0;
+            return
+        }
+
+        health -= value;
     }
 }

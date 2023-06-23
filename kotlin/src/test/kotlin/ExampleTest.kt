@@ -37,6 +37,20 @@ class ExampleTest {
         Assertions.assertFalse(character.hasHealth(1000));
     }
 
+    @Test
+    fun `should die after receive more damage than remaining health`() {
+        val character = Character()
+        character.damage(1000)
+        Assertions.assertFalse(character.isAlive())
+    }
+
+    @Test
+    fun `should not decrease health one character has died`() {
+        val character = Character()
+        character.damage(1001)
+        Assertions.assertTrue(character.hasHealth(0))
+    }
+
 
     @TestFactory
     fun dynamicTestExample() = listOf(
