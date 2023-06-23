@@ -15,4 +15,15 @@ class CharacterTest extends TestCase
 
         self::assertEquals($characterTest, $character);
     }
+
+    /** @test */
+    public function damage_substract_health_from_character()
+    {
+        $character = new Character();
+        $damagedCharacter = new Character(750, 1, true);
+
+        $character->receiveDamage(250);
+
+        self::assertEquals($damagedCharacter, $character);
+    }
 }

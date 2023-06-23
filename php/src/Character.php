@@ -17,4 +17,9 @@ class Character
         $this->level = $level;
         $this->isAlive = $isAlive;
     }
+
+    public function receiveDamage(int $damage): void
+    {
+        $this->health -= $damage;
+    }
 }
