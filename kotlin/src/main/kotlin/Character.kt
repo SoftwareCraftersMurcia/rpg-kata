@@ -16,7 +16,7 @@ class Character {
 
     fun heal(value: Int) = when {
         isDead() -> Unit
-        value+health > 1000 -> health = 1000
+        value + health > 1000 -> health = 1000
         else -> health += value
     }
 
