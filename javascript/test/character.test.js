@@ -30,5 +30,16 @@ describe("Character", function () {
 
       expect(victim.healthPoints).toBe(900);
     });
+
+    describe("when damage exceeded the character's health", function () {
+      it("should set the character's health to 0", function () {
+        const attacker = new Character();
+        const victim = new Character();
+
+        attacker.dealDamage(victim, 2000);
+
+        expect(victim.healthPoints).toBe(0);
+      });
+    });
   });
 });

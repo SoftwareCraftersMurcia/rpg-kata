@@ -9,6 +9,10 @@ class Character {
   }
 
   dealDamage(character, damage) {
+    if (damage > character.healthPoints) {
+      character.healthPoints = 0;
+      return;
+    }
     character.healthPoints = character.healthPoints - damage;
   }
 }
