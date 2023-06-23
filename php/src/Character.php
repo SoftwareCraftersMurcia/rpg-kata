@@ -4,6 +4,7 @@ namespace Kata;
 
 class Character
 {
+    const MAX_HEALTH = 1000;
     private int $health;
     private int $level;
 
@@ -31,6 +32,10 @@ class Character
 
     public function heal(Character $other, int $health): void
     {
+        if ($other->health + $health > self::MAX_HEALTH) {
+            $other->health = self::MAX_HEALTH;
+            return;
+        }
         $other->health += $health;
     }
 }

@@ -63,4 +63,16 @@ class CharacterTest extends TestCase
         $doctor->heal($healed, 100);
         self::assertEquals($expected, $healed);
     }
+
+    /** @test */
+    public function character_cannot_be_healed_over_max_health(): void
+    {
+        $healed = new Character(500);
+        $expected = new Character(1000);
+        $doctor = new Character();
+
+        $doctor->heal($healed, 600);
+
+        self::assertEquals($expected, $healed);
+    }
 }
