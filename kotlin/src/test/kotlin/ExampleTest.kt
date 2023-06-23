@@ -23,6 +23,21 @@ class ExampleTest {
         Assertions.assertEquals(true, character.isAlive())
     }
 
+    @Test
+    fun `should receive damage`() {
+        val character = Character()
+        character.damage(100)
+        Assertions.assertTrue(character.hasHealth(900));
+    }
+
+    @Test
+    fun `should not have 1000 health if any damage is received`() {
+        val character = Character()
+        character.damage(1)
+        Assertions.assertFalse(character.hasHealth(1000));
+    }
+
+
     @TestFactory
     fun dynamicTestExample() = listOf(
         1 to 1,
