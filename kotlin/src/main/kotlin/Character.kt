@@ -1,6 +1,6 @@
 class Character {
-
-    private var health = 1000
+    private val MAX_HEALTH = 1000
+    private var health = MAX_HEALTH
     fun hasHealth(value: Int): Boolean = health == value
     fun hasLevel(): Int = 1
     fun isAlive(): Boolean = health > 0
@@ -16,9 +16,11 @@ class Character {
 
     fun heal(value: Int) = when {
         isDead() -> Unit
-        value + health > 1000 -> health = 1000
+        isMaxHealthExceeded(value) -> health = MAX_HEALTH
         else -> health += value
     }
+
+    private fun isMaxHealthExceeded(value: Int) = value + health > MAX_HEALTH
 
     fun isDead(): Boolean = !isAlive()
 }
