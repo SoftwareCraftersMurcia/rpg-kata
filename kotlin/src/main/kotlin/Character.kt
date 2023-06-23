@@ -14,15 +14,10 @@ class Character {
         health -= value
     }
 
-    fun heal(value: Int) {
-        if (isDead()) {
-            return
-        }
-        if (value+health > 1000) {
-            health = 1000
-            return
-        }
-        health += value
+    fun heal(value: Int) = when {
+        isDead() -> Unit
+        value+health > 1000 -> health = 1000
+        else -> health += value
     }
 
     fun isDead(): Boolean = !isAlive()
